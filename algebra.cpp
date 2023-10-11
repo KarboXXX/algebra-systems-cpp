@@ -1,12 +1,10 @@
 #include <math.h>
 #include <stdio.h>
-#include <iostream>
 #include <stdlib.h> 
 #include <string.h>
 #include <array>
 #include <regex>
 #include <gtk-3.0/gtk/gtk.h>
-#include <bits/types.h>
 
 float det(float matrix[][2]) {
     return (matrix[0][0] * matrix[1][1]) - ((matrix[0][1] * matrix[1][0]));
@@ -145,8 +143,6 @@ std::array<std::string, 3> coeficient_matching(std::string equ) {
             erase_char(&y_coefficient, spaces);
             erase_char(&ans_str, spaces);
 
-            std::cout << x_coefficient << '\n' << y_coefficient << '\n' << ans_str << std::endl;
-
             S = { x_coefficient, y_coefficient, ans_str };
 
             // Converter os coeficientes para inteiros
@@ -211,10 +207,6 @@ std::array<int, 4> read_variables_from_equation(std::string equ) {
 
 
 // GUI
-
-void on_window_destroy(GtkWidget *widget, gpointer data) {
-    gtk_main_quit();
-}
 
 GtkWidget *result_button;
 GtkWidget *label1;
